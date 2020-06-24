@@ -12,6 +12,10 @@ func main() {
 	contextdb.ConnectDataBase()
 
 	r.GET("/recipe", controllers.FindRecipes)
+	r.POST("/recipe", controllers.CreateRecipe)
+	r.GET("/recipe/:id", controllers.FindRecipe)
+	r.PUT("/recipe/:id", controllers.UpdateRecipe)
+	r.PATCH("/recipe/:id", controllers.PatchRecipe)
 
 	r.Run()
 }
