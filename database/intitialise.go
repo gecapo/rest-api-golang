@@ -1,12 +1,13 @@
-package database
+package contextdb
 
 import (
+	"github.com/gecapo/rest-api-golang/database/models"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
-//Context pointer to the database context
-var Context *gorm.DB
+//DB pointer to the database context
+var DB *gorm.DB
 
 //ConnectDataBase opens connetion to db to db
 func ConnectDataBase() {
@@ -16,7 +17,7 @@ func ConnectDataBase() {
 		panic("Failed to connect to database!")
 	}
 
-	database.AutoMigrate(&Recipe{})
+	database.AutoMigrate(&models.Recipe{})
 
-	Context = database
+	DB = database
 }
